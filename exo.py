@@ -78,30 +78,52 @@ def VerifGrilleComplete(tableau):
 
 #exo 5
 def VerifCase(tableau,case):
-    if tableau[]
+    if case == 1 and tableau[0] == 1:
+        return True
+    if case == 2 and tableau[2] == 2:
+        return True
+    if case == 3 and tableau[4] == 3:
+        return True
+    if case == 4 and tableau[6] == 4:
+        return True
+    if case == 5 and tableau[8] == 5:
+        return True
+    if case == 6 and tableau[10] == 6:
+        return True
+    if case == 7 and tableau[12] == 7:
+        return True
+    if case == 8 and tableau[14] == 8:
+        return True
+    if case == 9 and tableau[16] == 9:
+        return True
+    
 
 
 end= False
 joueur = "X"
 Grille(grilleDeJeu)
 while(end==False):
+    print("Au tour du joueur", joueur, end=", ")
     choix = input("ou jouer?")
     if choix =="1" or choix =="2" or choix =="3" or choix =="4" or choix =="5" or choix =="6" or choix =="7" or choix =="8" or choix =="9":
         choix = int(choix)
-        Jouer(grilleDeJeu,joueur,choix)
-        Grille(grilleDeJeu)
-        if Verifier(grilleDeJeu) == True:
-            print("Le joueur", joueur, " a gagné.")
-            end = True
-        elif VerifGrilleComplete(grilleDeJeu) == True:
-            print("La grille est complète, il y a égalite")
-            end= True 
-        if joueur == "X":
-            joueur= "O"
-        elif joueur=="O":
-            joueur = "X"
+        if VerifCase(grilleDeJeu, choix) == True:
+            Jouer(grilleDeJeu,joueur,choix)
+            Grille(grilleDeJeu)
+            if Verifier(grilleDeJeu) == True:
+                print("Le joueur", joueur, " a gagné.")
+                end = True
+            elif VerifGrilleComplete(grilleDeJeu) == True:
+                print("La grille est complète, il y a égalite")
+                end= True 
+            if joueur == "X":
+                joueur= "O"
+            elif joueur=="O":
+                joueur = "X"
+        else:
+            print("case déjà occupée, choisissez en une autre")
     else: 
-        print("mauvais choix, choisissez une possiblité")
+        print("Choisissez un chiffre entre 1 et 9")
 
 
 
